@@ -1,0 +1,64 @@
+mod.id = "fullbright"
+mod.name = "FullBright"
+mod.group = "org.polyfrost"
+mod.version = "1.1.0"
+
+deps.fabric_loader = "0.19.5"
+deps.oneconfig = "1.2.10"
+
+loomx.loom_version = "1.17-SNAPSHOT"
+
+publish.modrinth = "p6m1u5Bu"
+
+["1.8.9"]
+mod.mc_compat = "1.8.9"
+mod.mc_releases = ["1.8.9"]
+feather_build = 2
+deps.osl = "0.21.1"
+
+["1.21.1"]
+mod.mc_compat = "1.21.1"
+mod.mc_releases = ["1.21.1"]
+deps.parchment = "2024.11.17"
+deps.yalmm = "3"
+
+["1.21.4"]
+mod.mc_compat = "1.21.4"
+mod.mc_releases = ["1.21.4"]
+deps.parchment = "2025.03.23"
+deps.yalmm = "3"
+
+["1.21.5"]
+mod.mc_compat = "1.21.5"
+mod.mc_releases = ["1.21.5"]
+deps.parchment = "2025.06.15"
+deps.yalmm = "3"
+
+["1.21.8"]
+mod.mc_compat = ">=1.21.7 <=1.21.8"
+mod.mc_releases = ["1.21.8"]
+deps.parchment = "2025.09.14"
+deps.yalmm = "3"
+
+["1.21.10"]
+mod.mc_compat = ">=1.21.9 <=1.21.10"
+mod.mc_releases = ["1.21.10"]
+deps.parchment = "2025.10.12"
+deps.yalmm = "3"
+
+["1.21.11"]
+mod.mc_compat = "1.21.11"
+mod.mc_releases = ["1.21.11"]
+deps.parchment = "2025.12.20"
+
+["26.1"]
+mod.mc_compat = "~26.1"
+mod.mc_releases = ["26.1", "26.1.1", "26.1.2"]
+
+["26.2"]
+mod.mc_compat = "~26.2"
+mod.mc_releases = ["26.2"]
+
+["26.3"]
+mod.mc_compat = "~26.3"
+mod.mc_releases = ["26.3"]

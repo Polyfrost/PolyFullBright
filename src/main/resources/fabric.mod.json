@@ -18,7 +18,7 @@
     ]
   },
   "mixins": [
-    "mixins.${mod_id}.json"
+    "${mixin_config}"
   ],
   "depends": {
     "minecraft": "${minecraft_version_range}",

@@ -2,8 +2,6 @@ package org.polyfrost.fullbright.config;
 
 import org.polyfrost.fullbright.FullBright;
 import org.polyfrost.oneconfig.api.config.v1.Config;
-import org.polyfrost.oneconfig.api.config.v1.Property;
-import org.polyfrost.oneconfig.api.config.v1.annotations.Dropdown;
 import org.polyfrost.oneconfig.api.config.v1.annotations.Slider;
 import org.polyfrost.oneconfig.api.config.v1.annotations.Switch;
 
@@ -13,8 +11,10 @@ public class FullBrightConfig extends Config {
 
         loadFrom("patcher.toml");
 
-        addDependency("fullBrightMode", "fullBrightMode", () -> Property.Display.HIDDEN);
-        addDependency("lightLevel", "lightLevel", () -> Property.Display.HIDDEN);
+        //? if <1.9 {
+        addCallback("enable", (Runnable) org.polyfrost.fullbright.legacy.LegacyLight::reloadRenderers);
+        addCallback("lightLevel", (Runnable) org.polyfrost.fullbright.legacy.LegacyLight::reloadRenderers);
+        //?}
     }
 
     @Switch(
@@ -22,20 +22,9 @@ public class FullBrightConfig extends Config {
     )
     public boolean enable = true;
 
-    @Dropdown(
-            title = "FullBright Mode",
-            options = {"Gamma", "Light Level"}
-    )
-    public int fullBrightMode = 0;
-
-    @Slider(
-            title = "Gamma",
-            max = 15f, step = 1f
-    )
-    public int gamma = 15;
-
     @Slider(
             title = "Light Level",
+            description = "The light level everything is rendered at. Server-side logic such as mob spawning is unaffected.",
             max = 15f, step = 1f
     )
     public int lightLevel = 15;
