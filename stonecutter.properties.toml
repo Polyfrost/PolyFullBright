@@ -9,6 +9,7 @@ deps.oneconfig = "1.2.10"
 loomx.loom_version = "1.17-SNAPSHOT"
 
 publish.modrinth = "p6m1u5Bu"
+publish.curseforge = ""
 
 ["1.8.9"]
 mod.mc_compat = "1.8.9"
