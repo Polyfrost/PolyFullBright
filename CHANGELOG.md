@@ -1,2 +1,2 @@
-## 1.1.0
-- im too lazy to write a changelog, read github
+## 1.1.1
+- Fixed compatibility issues on 1.8.9
