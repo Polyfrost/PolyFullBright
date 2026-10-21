@@ -10,11 +10,6 @@ public class FullBrightConfig extends Config {
         super(FullBright.ID + ".json", FullBright.NAME, Category.QOL);
 
         loadFrom("patcher.toml");
-
-        //? if <1.9 {
-        addCallback("enable", (Runnable) org.polyfrost.fullbright.legacy.LegacyLight::reloadRenderers);
-        addCallback("lightLevel", (Runnable) org.polyfrost.fullbright.legacy.LegacyLight::reloadRenderers);
-        //?}
     }
 
     @Switch(

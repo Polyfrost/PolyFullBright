@@ -6,8 +6,7 @@
     "maxShiftBy": 5
   },
   "client": [
-    "ArgentumChunkRenderContextMixin",
-    "WorldChunkMixin",
+    "GameRendererMixin",
     "WorldMixin"
   ],
   "verbose": true
