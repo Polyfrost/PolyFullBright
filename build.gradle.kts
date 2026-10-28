@@ -1,3 +1,4 @@
+import net.ltgt.gradle.errorprone.errorprone
 import net.ornithemc.ploceus.api.PloceusGradleExtensionApi
 
 plugins {
@@ -6,6 +7,7 @@ plugins {
     id("ploceus") version "1.17.7" apply false
     id("dev.deftu.gradle.bloom") version "0.2.0"
     id("me.modmuss50.mod-publish-plugin") version "2.2.0"
+    id("net.ltgt.errorprone") version "5.1.1"
 }
 
 val isOrnithe = stonecutter.current.version == "1.8.9"
@@ -112,6 +114,15 @@ dependencies {
     modImplementation("org.polyfrost.oneconfig:$mcversion-$loader:$oneconfigversion")
     for (module in oneconfigModules) {
         modImplementation("org.polyfrost.oneconfig:$module:$oneconfigversion")
+    }
+
+    errorprone("com.google.errorprone:error_prone_core:${sc.properties.get<String>("deps.errorprone")}")
+}
+
+tasks.withType<JavaCompile>().configureEach {
+    options.errorprone {
+        disableAllChecks = true
+        error("UnnecessarilyFullyQualified")
     }
 }
 
