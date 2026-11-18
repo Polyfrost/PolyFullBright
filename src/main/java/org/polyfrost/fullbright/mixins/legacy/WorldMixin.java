@@ -2,6 +2,8 @@ package org.polyfrost.fullbright.mixins.legacy;
 
 import net.minecraft.world.World;
 
+import com.llamalad7.mixinextras.injector.ModifyReturnValue;
+import org.polyfrost.fullbright.FullBright;
 import org.polyfrost.fullbright.legacy.LegacyLight;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -15,5 +17,11 @@ public class WorldMixin {
         if (LegacyLight.isEnabledOnClient()) {
             cir.setReturnValue(true);
         }
+    }
+
+    // stored light goes stale because updates are skipped, so brighten it here for paths that don't use the lightmap (sky darkening, vignette, shadows)
+    @ModifyReturnValue(method = "getRawBrightness(Lnet/minecraft/util/math/BlockPos;)I", at = @At("RETURN"))
+    private int fullbright$floorBrightness(int original) {
+        return LegacyLight.isEnabledOnClient() ? Math.max(original, FullBright.config.lightLevel) : original;
     }
 }
