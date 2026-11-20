@@ -37,10 +37,6 @@ val loader = if (isOrnithe) "ornithe" else "fabric"
 
 val isUnobfuscated = sc.current.parsed >= "26"
 
-val oneconfigModules = listOf(
-    "commands", "config", "config-impl", "events", "internal", "ui", "utils", "hud"
-)
-
 sourceSets.named("main") {
     if (isOrnithe) java.exclude("org/polyfrost/fullbright/mixins/*.java")
     else java.exclude("org/polyfrost/fullbright/legacy/**", "org/polyfrost/fullbright/mixins/legacy/**")
@@ -113,9 +109,6 @@ dependencies {
 
     modImplementation("net.fabricmc:fabric-loader:$loaderversion")
     modImplementation("org.polyfrost.oneconfig:$mcversion-$loader:$oneconfigversion")
-    for (module in oneconfigModules) {
-        modImplementation("org.polyfrost.oneconfig:$module:$oneconfigversion")
-    }
 
     errorprone("com.google.errorprone:error_prone_core:${sc.properties.get<String>("deps.errorprone")}")
 }
